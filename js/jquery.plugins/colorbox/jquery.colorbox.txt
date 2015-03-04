@@ -1,0 +1,4 @@
+wizmall에 맞게 	function isImage(url){
+		return true;
+		//return url.match(/\.(gif|png|jpg|jpeg|bmp)(?:\?([^#]*))?(?:#(.*))?$/i);
+	}을 변경

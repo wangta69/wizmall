@@ -1,0 +1,26 @@
+body {
+	margin: 0;
+	margin-top: 50px;
+	padding: 0;
+	font-size: 0.75em;
+	line-height: 1.5em;
+	background-color:#17823A;
+	/*font-family: Dotum, "돋움", sans-serif;*/
+}
+
+#layout{
+	width:780px;
+	margin:0px auto;
+	border:#FFFFFF 2px solid;
+	padding:20px;
+}
+
+.desc, .step1_agree{
+	background-color:#005B1E;
+	color:#FFFFFF;
+	padding:10px;
+}
+
+.desc a{
+	color:#FF6600;
+}

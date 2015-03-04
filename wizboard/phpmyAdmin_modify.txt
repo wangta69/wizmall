@@ -1,0 +1,18 @@
+/config.inc.php
+
+상단
+<?php
+//include "../../config/db_info.php";
+include "../../config/cfg.core.php";
+?>
+
+
+$cfg['PmaAbsoluteUri'] = $cfg["admin"]["MART_BASEDIR"]."/wizboard/phpMyAdmin";
+
+
+/libraries/common.lib.php 에서 위즈몰 관리자 권환 획득후 접근가능하게끔 프로그램 수정
+include "../../lib/class.common.php";
+$common = new common();
+$common->pub_path = "../../";
+$cfg["member"] = $common->getLogininfo();//로그인 정보를 가져옮
+if($cfg["member"]["mgrade"] == "") $common->js_alert("관리자권환 획득후 시도해 주세요");

@@ -1,0 +1,17 @@
+@charset "utf-8"; 
+
+/* Tree */
+.tree{ font-size:12px; font-family:Tahoma, Geneva, sans-serif;}
+.tree ul{ list-style:none; margin:0; padding:0;}
+.tree ul ul{ margin:0 0 0 -3px;}
+.tree li{ position:relative; padding:0 0 0 22px; white-space:nowrap; line-height:20px; background:url(lineTree.gif) no-repeat 9px 0; *zoom:1;}
+.tree li.last{ background-position:9px -1766px;}
+.tree li.active { font-weight:bold; color:#333;}
+.tree li.active li { font-weight:normal; color:#767676;}
+.tree a{ text-decoration:none; color:#767676;}
+.tree a:hover,
+.tree a:active,
+.tree a:focus{ text-decoration:underline;}
+.tree .toggle{ position:absolute; top:0; left:0; width:19px; height:19px; padding:0; overflow:hidden; border:0; font-size:0; color:#fff; vertical-align:middle; text-indent:19px; *text-indent:0; background:transparent url(btnPlusMinus.gif) no-repeat; cursor:pointer;}
+.tree .toggle.plus{ background-position:5px -15px;}
+.tree .toggle.minus{ background-position:5px 5px;}

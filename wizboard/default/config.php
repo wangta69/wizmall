@@ -1,0 +1,81 @@
+<?
+## config1
+$cfg["wizboard"]["SameDB"]								="";
+$cfg["wizboard"]["ExtendDB"]								="";
+$cfg["wizboard"]["ExtendDBUse"]						="";
+$cfg["wizboard"]["ICON_SKIN_TYPE"]					="default";
+$cfg["wizboard"]["BOARD_SKIN_TYPE"]				="default";
+$cfg["wizboard"]["BOTTOM_SKIN_TYPE"]			="default";
+$cfg["wizboard"]["REPLE_SKIN_TYPE"]				="default";
+$cfg["wizboard"]["INCLUDE_MALL_SKIN"]				="no";
+$cfg["wizboard"]["TABLE_WIDTH"]						="95%";
+$cfg["wizboard"]["TABLE_ALIGN"]						="center";
+$cfg["wizboard"]["AdminOnly"]							="no";
+$cfg["wizboard"]["SecretBoard"]							="";
+$cfg["wizboard"]["setsecurityiframe"]					="checked";
+$cfg["wizboard"]["setsecurityscript"]						="checked";
+$cfg["wizboard"]["INCLUDE_MALL_SKIN"]				="no";
+$cfg["wizboard"]["ATTACHEDCOUNT"]					="0";
+## config2
+$cfg["wizboard"]["AdminAlign"]							="UID@desc";
+$cfg["wizboard"]["SubjectLength"]						="50";
+$cfg["wizboard"]["NameLength"]							="4";
+$cfg["wizboard"]["ListNo"]									="10";
+$cfg["wizboard"]["PageNo"]								="10";
+$cfg["wizboard"]["NewTime"]								="1";
+$cfg["wizboard"]["Bgcolort"]								="#EFEFEF";
+$cfg["wizboard"]["Bgcolorl"]								="#EFEFEF";
+$cfg["wizboard"]["Bgcolors"]								="#EFEFEF";
+$cfg["wizboard"]["Bgcolorp"]								="#EFEFEF";
+$cfg["wizboard"]["Linecolor"]								="#4B4B4B";
+$cfg["wizboard"]["Fontcolort"]							="#BLACK";
+$cfg["wizboard"]["Fontcolorl"]								="#F5F5F5";
+$cfg["wizboard"]["fontcolors"]								="";
+## config3
+$cfg["wizboard"]["VSubjectLength"]						="100";
+$cfg["wizboard"]["VNameLength"]						="10";
+$cfg["wizboard"]["ReplyBtn"]								="yes";
+$cfg["wizboard"]["AutoLink"]								="no";
+$cfg["wizboard"]["CommentEnable"]						="yes";
+$cfg["wizboard"]["ListEnable"]							="no";
+$cfg["wizboard"]["Bgcolort"]								="#EFEFEF";
+$cfg["wizboard"]["Bgcolorl"]								="#EFEFEF";
+$cfg["wizboard"]["Bgcolor3"]								="#EFEFEF";
+$cfg["wizboard"]["Bgcolor4"]								="#EFEFEF";
+$cfg["wizboard"]["Bgcolors"]								="#EFEFEF";
+$cfg["wizboard"]["Linecolor"]								="#4B4B4B";
+$cfg["wizboard"]["Fontcolort"]							="#BLACK";
+$cfg["wizboard"]["Fontcolorl"]								="#F5F5F5";
+$cfg["wizboard"]["Fontcolors"]							="#F5F5F5";
+$cfg["wizboard"]["Fontcolors4"]							="#F5F5F5";
+## config4
+$cfg["wizboard"]["wBgcolort"]								="#DDDDDD";
+$cfg["wizboard"]["wBgcolorl"]								="#BEBEBE";
+$cfg["wizboard"]["wBgcolors"]							="#DDDDDD";
+$cfg["wizboard"]["wLinecolor"]							="#F5F5F5";
+$cfg["wizboard"]["wFontcolort"]							="BLACK";
+$cfg["wizboard"]["Write_prohibition_Word"]			="섹스,광고, 야동,보지,자지,";
+## config5
+$cfg["wizboard"]["ListForMember"]						="";
+$cfg["wizboard"]["ListMemberGrade"]					="10";
+$cfg["wizboard"]["ListMemberGradeBoundary"]		="over";
+$cfg["wizboard"]["ListMemberGenderBoundary"]		="";
+$cfg["wizboard"]["ReadForMember"]					="";
+$cfg["wizboard"]["ReadMemberGrade"]					="10";
+$cfg["wizboard"]["ReadMemberGradeBoundary"]	="over";
+$cfg["wizboard"]["ReadMemberGenderBoundary"]	="";
+$cfg["wizboard"]["WriteForMember"]						="";
+$cfg["wizboard"]["WriteMemberGrade"]					="10";
+$cfg["wizboard"]["WriteMemberGradeBoundary"]	="over";
+$cfg["wizboard"]["WriteMemberGenderBoundary"]	="";
+$cfg["wizboard"]["DownForMember"]					="";
+$cfg["wizboard"]["DownMemberGrade"]				="10";
+$cfg["wizboard"]["DownMemberGradeBoundary"]	="over";
+$cfg["wizboard"]["DownMemberGenderBoundary"]	="";
+$cfg["wizboard"]["ProhibitExtention"]					= "cgi,php,asp,jsp,exe,php3,php4,html,htm,shtml";
+$cfg["wizboard"]["UpLoadingOverWriteEnable"]		= "checked";
+$cfg["wizboard"]["CategoryEnable"]						= "";
+$cfg["wizboard"]["CategoryType"]						= "select";
+$cfg["wizboard"]["WritingPointEnable"]					= "";
+$cfg["wizboard"]["WritingPoint"]							= "0";
+?>

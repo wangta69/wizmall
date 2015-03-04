@@ -1,0 +1,75 @@
+@charset "utf-8";
+/* bootstrap 재 정의 */
+.pagination {margin: 0px 0;}
+
+/* 각메인의 게시물이나 상품 리스트 
+#list{
+	width: 600px; 
+	font-size: 12px; 
+	color: "#666666";
+	line-height: 140%;
+}
+
+*/
+/*toplogo, topmenutext, topmenunotice, topmenusearch*/
+
+/* 상단 로고
+#logo {
+	float: left;
+	padding : 5px 0 0 5px;
+}
+
+#top_menu{
+float:right; 
+}
+ */
+/* 상단 메뉴 
+#topmenutext {
+
+	padding-right:10px;
+	margin:5px 0 0 0; border-bottom:1px solid #cccccc; _zoom:1;
+}
+
+*+html #topmenutext{height:1%}
+
+#topmenutext:after{content:" "; display:block; clear:both; height:0; visibility:hidden;}
+
+#topmenutext a{
+	display:block; 
+	float:right; 
+	margin:3px -1px -1px 0; 
+	padding:7px 15px 5px 15px; 
+	border:1px solid #cccccc; 
+	-moz-border-radius:5px 5px 0 0; 
+	-webkit-border-top-left-radius:5px;
+	-webkit-border-top-right-radius:5px; 
+	background:#f8f8f8;
+	text-decoration:none; 
+	color:#000;
+}
+#topmenutext a:hover, .pop_menu .on{
+	position:relative; 
+	margin-top:0; 
+	padding-top:10px; 
+	border-bottom:1px solid #fff; 
+	background:#fff;
+
+}
+
+*/
+/* 상단 검색 
+#topmenusearch {
+
+	float: right;
+	padding-top:10px;
+	padding-right:10px;
+
+}
+*/
+/* 좌측에 타이틀이 있는 박스 샘플 */
+/*
+table.mainbox { width:100%; }
+table.mainbox th { padding:5px; background-color:#efefef; border-bottom:1px solid #b9b9b9;}
+table.mainbox td { padding:5px; line-height:160%; border-bottom:1px solid #eee;}
+table.mainbox tr { border-bottom:1px solid #eee; }
+*/

@@ -1,0 +1,60 @@
+CREATE TABLE wizMall (
+UID int(11) DEFAULT '0' PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  PID varchar(50) NOT NULL default '',
+  Name varchar(250) NOT NULL default '',
+  CompName varchar(50) NOT NULL default '',
+  Price int(8) NOT NULL default '0',
+  Price1 int(8) NOT NULL default '0',
+  Point int(8) NOT NULL default '0',
+  Model varchar(50) NOT NULL default '',
+  Size text NOT NULL,
+  Color text NOT NULL,
+  Option1 varchar(10) NOT NULL default '',
+  Option2 varchar(10) NOT NULL default '',
+  Option3 varchar(10) NOT NULL default '',
+  Option4 varchar(10) NOT NULL default '',
+  Picture text NOT NULL,
+  None varchar(8) NOT NULL default '',
+  Input int(5) NOT NULL default '0',
+  Output int(5) NOT NULL default '0',
+  Stock int(4) NOT NULL default '0',
+  Date int(13) NOT NULL default '0',
+  Description1 text NOT NULL,
+  Description2 text NOT NULL,
+  Category int(6) unsigned zerofill NOT NULL default '000000',
+  TextType varchar(8) NOT NULL default '',
+  Hit int(4) NOT NULL default '0',
+  GetComp varchar(200) NOT NULL default '')";
+/*
+
+UID : UID - 일련번호
+PID : PID - 제품아뒤
+Name : 제품명
+Brand : 제조사혹은 브렌드
+CompName : 공급처명
+Price : 실제가격
+Price1 : 소비자가격
+Point : 포인트
+Model : 모델명
+Size : 크기
+Color : 색상
+Option1 : 부가란(옵션에따른 가격설정, 옵션가격 + 상품가격)
+Option2 : 부가란(옵션에따른 가격설정, 옵션가격이 실제 상품가격)
+Option3 : 부가란(등록옵션 - 추천, 신규, ....)
+Option4 : 부가란
+Picture : 그림
+None : 품절
+Input : 입고수랑
+Output : 출고수량
+Stock : 현재고량
+Date : 입력일
+Description1 : 제품설명1
+Description2 : 제품설명2
+Category : 카테고리
+TextType : 제품설명1의 타입
+Hit : 제품조회수
+GetComp : 비교제품란
+
+UID,PID,Name,Brand,CompName,Price,Price1,Point,Model,Size,Color,Option1,Option2,Option3,Option4,
+Picture,None,Input,Output,Stock,Date,Description1,Description2,Category,TextType,Hit,GetComp
+*/

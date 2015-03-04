@@ -1,0 +1,277 @@
+/*@charset "euc-kr";
+* default definition
+*/
+/*
+* {
+font-family:"돋움", "돋움체", "굴림", "굴림체";
+font-size:12px;
+color:#666666;
+line-height:1.6em;
+}
+*/
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 0.75em;
+	line-height: 1.5em;
+	font-size:12px;
+	/*font-family: Dotum, "돋움", sans-serif;*/
+}
+
+form {
+	margin: 0;
+	padding: 0;
+	/* position: relative; alditor 사용시 익스플로에서 호환안됨 */
+}
+
+hr {
+	display: none;
+}
+
+
+img {
+	/* vertical-align: middle; 브라우저에 따라 테이블사이가 벌어지는 현상발생 */ 
+	/* for IE imge margin */
+}
+
+p, div, th, td, select {
+	color: #78777C;
+}
+
+ul {   
+	list-style:none;   
+	margin:0;   
+	padding:0;   
+}  
+
+ol {   
+	list-style:none;   
+	margin:0;   
+	padding:0;   
+} 
+
+.list_decimal{list-style:decimal;}
+.list_uroman{list-style:upper-roman;}
+.list_lroman{list-style:lower-roman;}
+.list_disc{list-style:disc;}
+.list_circle{list-style:circle;}
+
+dl, dt, dd {   
+	list-style:none;   
+	margin:0;   
+	padding:0;   
+} 
+
+/* 각종 Input Type 에 대한 정의 */ 
+img,
+input.type-image {
+	vertical-align:middle; 
+	border: 0 none;
+}
+
+input.type-text,
+textarea {
+	border-top: 1px solid #797979;
+	border-right: 1px solid #D4D1C8;
+	border-bottom: 1px solid #D4D1C8;
+	border-left: 1px solid #797979;
+	background: #fff;
+}
+
+
+input, select, textarea {
+	vertical-align: middle;
+	font-size: 1em;
+	color: #78777C;
+}
+
+/* input.type-text:hover,
+input.type-text:focus,
+input.[type="text"]:hover,
+input.[type="text"]:focus,*/
+input:hover,
+input:focus,
+textarea:hover,
+textarea:focus {
+	background-color: #FFFFCE;
+}
+
+
+input.type-radio		{	
+	width:13px;
+	height:13px;
+	margin:0 0 1px 0 ;
+}
+
+input.type-check	{width:13px; height:13px; margin:0 0 1px 0}
+input.type-file	{border:1px solid #999999;}
+/* IE 용 HACK 
+*html input.type-file	{border:1px solid #999999; height:16px;}
+*/
+*:first-child+html input.type-file	{border:1px solid #999999; height:16px;}
+
+
+span.button,
+img.button,
+a.button {
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+/* 폰트 크기 */
+.font11	{font-size:11px;}
+.font12	{font-size:12px;}
+.font14	{font-size:14px;}
+.font16	{font-size:16px;}
+
+/* 폰트 색상 */
+.gray	{color:#686868}
+.grayW	{color:#999999}
+.black	{color:#000}
+.point	{color:#F29000}
+.orange	{color:#FF6600}
+.green	{color:#26A826}
+.darkgreen	{color:#006600}
+.blue	{color:#2669A8}
+.sky	{color:#4B94DF}
+.red	{color:#FE0000}
+.white	{color:#FFF}
+
+
+/* 백그라운드 색상 */
+.b_gray		{background:#686868}
+.b_orange	{background:#FF6600}
+.b_green	{background:#26A826}
+.b_blue		{background:#2669A8}
+.b_black	{background:#000000}
+.b_white	{background:#ffffff}
+
+/* width 정의 */
+.w30	{width:30px !important; }
+.w50	{width:50px !important; }
+.w100	{width:100px !important; }
+.w150	{width:150px !important; }
+.w200	{width:200px !important; }
+.w300	{width:300px !important; }
+.w400	{width:400px !important; }
+.w500	{width:500px !important; }
+.w100p	{width:100% !important; }
+
+
+
+.default_ul{
+	list-style:none; 
+	padding:0px;
+}
+
+.default_ul li{
+	float:left;
+}
+
+/* 스페이스 정의 */
+.space1	{clear:both; padding-bottom:1px}
+.space2	{clear:both; padding-bottom:2px}
+.space5	{clear:both; padding-bottom:5px}
+.space8	{clear:both; padding-bottom:8px}
+.space10	{clear:both; padding-bottom:10px}
+.space15	{clear:both; padding-bottom:15px}
+.space20	{clear:both; padding-bottom:20px}
+.space25	{clear:both; padding-bottom:25px}
+.space30	{clear:both; padding-bottom:30px}
+
+/* 링크관련 폰트정의 
+a:link		{color:#686868; text-decoration:none;}
+a:visited	{color:#686868; text-decoration:none;}
+a:hover		{color:#686868; text-decoration:none;}
+a:active	{color:#686868; text-decoration:none;}
+*/
+a.black:link		{color:#000000; text-decoration:none;}
+a.black:visited		{color:#000000; text-decoration:none;}
+a.black:hover		{color:#000000; text-decoration:underline;}
+a.black:active		{color:#000000; text-decoration:none;}
+
+a.orange:link		{color:#FF6600; text-decoration:none;}
+a.orange:visited	{color:#FF6600; text-decoration:none;}
+a.orange:hover		{color:#FF6600; text-decoration:underline;}
+a.orange:active		{color:#FF6600; text-decoration:none;}
+
+a.green:link		{color:#FF6600; text-decoration:none;}
+a.green:visited	{color:#FF6600; text-decoration:none;}
+a.green:hover		{color:#FF6600; text-decoration:underline;}
+a.green:active		{color:#FF6600; text-decoration:none;}
+
+a.white:link		{color:#FFFFFF; text-decoration:none;}
+a.white:visited	{color:#FFFFFF; text-decoration:none;}
+a.white:hover		{color:#FFFFFF; text-decoration:underline;}
+a.white:active		{color:#FFFFFF; text-decoration:none;}
+
+/* Float정렬 */
+.fleft 	{ float:left; }
+.fright	{ float:right; }
+.center	{ margin:0px auto; }
+.inline	 	{ display:inline; }
+
+/*정렬*/
+.agn_l	{ text-align:left !important; }
+.agn_r	{ text-align:right !important; }
+.agn_c	{ text-align:center !important; }
+.Center	{ margin:0px auto; }
+
+.vagn_t	{ vertical-align:top !important;}
+.vagn_m	{ vertical-align:middle !important;}
+.vagn_b { vertical-align:bottom !important;}
+
+/* 기타 정의 */
+.clear		{clear:both}
+.hand	{cursor:pointer;}
+.none	 {display:none}
+
+.tight	{letter-spacing:-0.1em}
+.eng	{font-family:verdana,sans-serif}
+.b		{font-weight:bold;}
+.normal	{font-weight:normal;}
+.u		{text-decoration:underline;}
+
+
+/* 각종 버튼 정의 시작 */
+/* 버튼타입1 초기화 */
+.button, .button a, .button button, .button input { 
+	position:relative; display:inline-block; border:0;
+	text-decoration:none !important; 
+	font-size:11px; font-family:dotum; color:#777777; white-space:nowrap; 
+	background:url('/images/btn_css/small_btn_bg.gif') no-repeat; vertical-align:middle; overflow:visible;
+}
+.button { height:16px; padding:0; margin-right:2px; background-position:left top; }
+.button a, .button button, .button input	{ left:2px; vertical-align:top; cursor:pointer; }
+
+/* 버튼타입1사이즈 */
+.button a, .button button, .button input { height:15px; padding:1px 8px 0px 8px; font-size:11px; line-height:16px; background-position:right top; }
+
+/* 블렛들어간 버튼타입1 */
+.button.bull { height:18px; padding-right:2px; background-position:right -17px; }
+.button.bull,
+.button.bull a,
+.button.bull button,
+.button.bull input { background-image:url('/images/btn_css/small_btn_bg.gif'); }
+.button.bull a, .button.bull button, .button.bull input { height:18px; left:0px; padding:0px 8px 0px 15px; font-size:11px; line-height:18px; background-position:left -17px; }
+
+/* 회색 버튼타입1 */
+.button.gray { height:16px; background-position:left -36px; }
+.button.gray,
+.button.gray a,
+.button.gray button,
+.button.gray input { background-image:url('/images/btn_css/small_btn_bg.gif'); }
+.button.gray a, .button.gray button, .button.gray input { height:16px; padding:0px 8px 0px 8px; font-size:11px; color:#fff; line-height:16px; background-position:right -36px; }
+
+/* 버튼타입1 글자효과 */
+.button *:hover, .button *:active, .button *:focus{ /*미지정*/ }
+
+/* 버튼타입1글자 Strong */
+.button.strong * { font-weight:bold !important; }
+
+
+
+.border_r{
+	border-right:1px solid #dddddd;
+}
+/* 각종 버튼 정의 끝 */

@@ -1,0 +1,38 @@
+BODY{COLOR: #666666;FONT-FAMILY: "±¼¸²";FONT-SIZE: 9pt;background-color: white; line-height: 20px}
+    a:link    { font-family: "±¼¸²", "Arial", "Helvetica", "sans-serif"; font-size: 12px; color: #666666; text-decoration: none}
+	a:active  { font-family: "±¼¸²", "Arial", "Helvetica", "sans-serif"; font-size: 12px; color: #999999; text-decoration: none}
+	a:visited { font-family: "±¼¸²", "Arial", "Helvetica", "sans-serif"; font-size: 12px; color: #666666; text-decoration: none}
+	a:hover   { font-family: "±¼¸²", "Arial", "Helvetica", "sans-serif"; font-size: 12px; color: #666666; text-decoration: underline}
+	TD       {font-family: "±¼¸²", "Arial", "Helvetica", "sans-serif"; font-size: 12px; color: #666666; text-decoration: 20px;}
+    img      {border:0}
+
+.form {  font-family: "±¼¸²", "Arial", "Helvetica", "sans-serif"; font-size: 12px; bgcolor:ebebeb; color: #666666; background: eeeeee}
+.leftmargin5 { FONT-FAMILY: "±¼¸²"; FONT-SIZE: 9pt; TEXT-ALIGN: left; PADDING-LEFT: 5px; }
+
+.formline{
+	   BACKGROUND-COLOR: #ffffff;
+	   BORDER-BOTTOM: #666666 1px solid;
+	   BORDER-LEFT: #666666 1px solid;
+	   BORDER-RIGHT: #666666 1px solid;
+	   BORDER-TOP: #666666 1px solid;
+	   font-family: "±¼¸²", "Arial";
+	   font-size: 9pt;
+	   color: #000000
+}
+
+.tableline{
+	   BORDER-BOTTOM: #EBEBEB 1px solid;
+	   BORDER-LEFT: #EBEBEB 1px solid;
+	   BORDER-RIGHT: #EBEBEB 1px solid;
+	   BORDER-TOP: #EBEBEB 1px solid;
+}
+
+.company {  font-family: "±¼¸²", "Arial", "Helvetica", "sans-serif"; font-size: 12px; color: #666666; text-decoration: none; line-height: 20px}
+
+.company
+a:link    { font-family: "±¼¸²", "Arial", "Helvetica", "sans-serif"; font-size: 12px; color: #666666; text-decoration: underline}
+a:active  { font-family: "±¼¸²", "Arial", "Helvetica", "sans-serif"; font-size: 12px; color: #999999; text-decoration: none}
+a:visited { font-family: "±¼¸²", "Arial", "Helvetica", "sans-serif"; font-size: 12px; color: #666666; text-decoration: none}
+a:hover   { font-family: "±¼¸²", "Arial", "Helvetica", "sans-serif"; font-size: 12px; color: #666666; text-decoration: underline}
+
+.tdc {  font-family: "±¼¸²", "Arial", "Helvetica", "sans-serif"; background: #F6F6F6; font-size: 12px}

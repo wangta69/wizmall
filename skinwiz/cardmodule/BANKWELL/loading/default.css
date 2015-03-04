@@ -1,0 +1,68 @@
+.ht16 {color:#666666;font-size:9pt;font-family:µ¸¿ò;line-height:16px;}
+.ht16s {color:#666666;font-size:8pt;font-family:µ¸¿ò;line-height:16px;}
+.ht18 {color:#666666;font-size:9pt;font-family:µ¸¿ò;line-height:18px;}
+.ht20 {color:#666666;font-size:9pt;font-family:µ¸¿ò;line-height:20px;}
+img {border:0px}
+
+/* font */
+font.indicate{color:#EB9B17;font-size: 9pt; font-family: µ¸¿ò,seoul, Arial;  line-height:20px;}
+font.board01{color:#666666;font-size: 9pt; font-family: µ¸¿ò,seoul, Arial; line-height:20px;}
+font.board02{color:#945C03;font-size: 9pt; font-family: µ¸¿ò,seoul, Arial; line-height:20px;}
+font.point{color:#FF6600;font-size: 9pt; font-family:Arial; line-height:20px;}
+
+/* pagosul ÀÌ Ãß°¡ÇÑ °Í */
+font.g{color:#339445;font-size: 9pt; font-family: µ¸¿ò,seoul, Arial; line-height:20px;}
+font.b{color:#B38300;font-size: 9pt; font-family: µ¸¿ò,seoul, Arial; line-height:20px;}
+font.b2{color:#B09763;font-size: 9pt; font-family: µ¸¿ò,seoul, Arial; line-height:20px;}
+.text {color:#666666;font-size:9pt;font-family:µ¸¿ò; line-height:20px;}
+
+/*body Margin*/
+body {
+	background-color: #FFFFFF;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+/* link */
+
+.a{
+	color:#706B5F;
+	font-size: 9pt;
+	font-family: "µ¸¿ò", "seoul", "Arial";
+	text-decoration: underline;
+}
+a:link{color:#0080AA; text-decoration: none }
+a:visited{color:#0080AA; text-decoration: none }
+a:hover{color:#F74F04; text-decoration: none }
+a:active{color:#706B5F; text-decoration: none }
+
+.indicate{color:#EB9B17; font-size: 9pt; font-family: µ¸¿ò,seoul, Arial}
+a.indicate:link{color:#EB9B17; text-decoration: none }
+a.indicate:visited{color:#EB9B17; text-decoration: none }
+a.indicate:hover{color:#EB9B17; text-decoration: none }
+a.indicate:active{color:#EB9B17; text-decoration: none }
+
+.board01{color:#666666; font-size: 9pt; font-family: µ¸¿ò,seoul, Arial}
+a.board01:link{color:#666666; text-decoration: none }
+a.board01:visited{color:#666666; text-decoration: none }
+a.board01:hover{color:#666666; text-decoration: none }
+a.board01:active{color:#666666; text-decoration: none }
+
+.board02{color:#945C03; font-size: 9pt; font-family: µ¸¿ò,seoul, Arial}
+a.board02:link{color:#945C03; text-decoration: none }
+a.board02:visited{color:#945C03; text-decoration: none }
+a.board02:hover{color:#945C03; text-decoration: none }
+a.board02:active{color:#945C03; text-decoration: none }
+
+
+
+/* Form Elements */
+.input {border:1px #cccccc solid; background:#FFFFFF;height:80px; font-size:9pt; font-family:µ¸¿ò,seoul, Arial; color:#666666;}
+.select {border:0px #D0D99D solid; background:#999999;height:18px; font-size:9pt; font-family:µ¸¿ò,seoul, Arial; color:#FFFFFF;}
+.input1 {border:1px #D0D99D solid; background:#D0D99D;height:80px; font-size:9pt; font-family:µ¸¿ò,seoul, Arial; color:#666666;}
+.input2 {border:1px #cccccc solid; background:#FFFFFF; font-size:9pt; font-family:µ¸¿ò,seoul, Arial; color:#666666;}
+.input3 {border:1px #CBB6C4 solid; background:#CBB6C4;height:80px; font-size:9pt; font-family:µ¸¿ò,seoul, Arial; color:#ffffff;}
+.input4 {border:1px solid #CCCCCC; background:#FFFFFF; font-size:9pt; font-family:µ¸¿ò,seoul,Arial; color:#666666;}
+.find {border:1px #CCCCCC solid; background:#FFFFFF;height:21px; font-size:9pt; font-family:µ¸¿ò,seoul, Arial; color:#666666;}
+.board{border:1px #FDFBF7 solid; background:#FDFBF7;height:18px; font-size:9pt; font-family:µ¸¿ò,seoul, Arial; color:#666666;}

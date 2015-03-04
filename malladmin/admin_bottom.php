@@ -1,0 +1,1 @@
+<div>Copyright ⓒ 2010 <?=$cfg["admin"]["ADMIN_TITLE"]?>. All rights reserved.</div>

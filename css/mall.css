@@ -1,0 +1,239 @@
+@charset "utf-8";
+/* top navygation */
+.navy{
+	 height:18px; 
+	 
+
+	 /*
+	 background-position:right -17px; 
+	 background-image:url('/images/common/sn_arrow.gif');
+	 */
+
+	 background-image:url('/images/common/sn_arrow.gif');
+	 background-repeat: no-repeat;
+	 background-position:10px 13px;
+	 
+	 /*
+	  background-position: 0 0
+	 */
+	 padding-top:10px;
+	 vertical-align:middle; 
+	 overflow:visible;
+	 background-color: #F6F6F6;
+	 padding-left:30px; 
+	 padding-bottom:10px;
+	 margin:5px 0px;
+}
+.navy:before	{ content:""; clear:both; display:block;}
+.navy:after	{ content:""; clear:both; display:block;}
+
+
+/**
+ * 	bootstrap 최적화
+ */
+.col-left,
+.col-main {
+  position: relative;
+  min-height: 1px;
+}
+
+@media (min-width: 500px) {
+	.col-left {
+	    width: 20%;
+	    padding-right: 0px;
+  		padding-left: 0px;
+  		float: left;
+	}
+	
+	.col-main {
+	    width: 80%;
+	    padding-right: 15px;
+  		padding-left: 15px;
+  		float: left;
+	}
+}
+/* 상품 상세 설명 페이지 각각의 타이틀 */
+.title_box{
+	background-color: #EBEBEB;
+	font-weight:bold;
+	color:#FF6600;
+}
+
+.paging_box{
+	text-align:center;
+	margin:10px 0;
+}
+.paging_box:after{ content:""; clear:both; display:block;}
+
+.btn_box{
+	text-align:center;
+	margin:10px 0;
+}
+.btn_box:after{ content:""; clear:both; display:block;}
+
+/* 몰에 사용되는 테이블 정의 */
+.table_main{
+	/*
+	font-size: 9pt; 
+	line-height: 160%; 
+	color: #333333; 
+	text-decoration: none;
+	*/
+	border-top:1px solid #dddddd;
+	border-left:1px solid #dddddd;
+	border-right:1px groove #dddddd;
+	border-bottom:0px;
+	border-spacing:1px;
+	line-height: 200%; 
+	padding:0 0 0 0;
+}
+
+.table_main th{
+	background-color:#E6E9EA; 
+	text-align:left;
+	font-weight:normal;
+	padding-left:10px;
+}
+
+.table_main input[type=text], .table_main  input[type=password], .table_main textarea{
+ border: 1px #CCCCCC solid;
+ width:150px;
+}
+
+table.table_main tr td{
+	border-top:0px;
+	border-left:0px;
+	border-right:0px;
+	text-align:left;
+	padding-left:5px;
+	border-bottom: 1px solid #dddddd;	
+}
+/* 테이블의 좌우측 라인을 없애주기 */
+.noside{
+	border-left:0px solid #dddddd;
+	border-right:0px groove #dddddd;
+}
+
+
+
+/*
+.m_cat tr:first-child td{
+	border-right:1px groove #dddddd;
+
+}
+*/
+/* 안내 멘트양식 1 */
+/*dl .ment{float:left; width:600px; *zoom:1; border:1px solid black;}*/
+.ment { *zoom:1; background-color:#F7F7F7; padding:10px}
+.ment dt{float:left; font-weight:bold; color:#FF6600}
+.ment dd{float:left;}
+.ment:after{ content:""; clear:both; display:block;}
+
+.dl_gen { *zoom:1; padding:10px;}
+.dl_gen dt{float:left;}
+.dl_gen dd{float:left;}
+.dl_gen:after{ content:""; clear:both; display:block;}
+
+/*
+.left_login { *zoom:1; display:block; padding-top:20px;text-align:center;width:160px; background-color:red;}
+.left_login dt{float:left;width:32px}
+.left_login dd{float:left;padding-left:5px;}
+.left_login:after{ content:""; clear:both; display:block;}
+
+*/
+/* 좌측 로그인 박스 */
+.left_login {margin:0px; padding-top:20px;}
+.left_login dt {float:left; text-align:left;}
+.left_login dd {padding:2px 0px 2px 0px;}
+
+#left_member_box{
+	/*
+	border-top:1px solid #dddddd;
+	border-left:1px solid #dddddd;
+	border-right:1px groove #dddddd;
+	border-bottom:1px groove #dddddd;
+	*/
+}
+/*메인 로그인 박스*/
+.main_login {margin:0px; padding-top:20px;  padding-left:30px; width:330px;}
+.main_login dt {float:left; text-align:left; width:78px;}
+.main_login dd {padding:0px 0px 0px 0px;height:30px;}
+
+.list_3	{ border:1px; *zoom:1; padding:0px; }
+.list_3:after	{ content:""; clear:both; display:block; }
+.list_3 li	{ float:left; width:33%; list-style:none; padding:0px; }
+/*.select_list li:hover	{ background-color:yellow; }*/
+
+/* wizhtml 관련 (개인보호정책 / 이용약관 /고객센터..) */
+.dl_html {margin:0px; padding-top:20px;}
+.dl_html dt { text-align:left; color:#006699; font-weight:bold; }
+.dl_html dd {padding:2px 0px 20px 30px;}
+
+.dl_html dd ul li{padding-top:10px;}
+.dl_html dd ul li ul li{padding-top:0px;padding-left:20px;}
+
+/* 메인 정리 */
+.main_center_banner {padding-top:4px}
+.main_center_banner li{ display: inline; padding:0px 4px}
+.main_center_banner:after{ content:""; clear:both; display:block;}
+
+.main_product_title {padding-top:4px}
+
+
+.main_product_list li{ float:left; padding:10px 0px; text-align:center;width:20%; }
+.main_product_list img{ border:1px solid #dddddd;}
+.main_product_list .p_name{font-weight:bold; }
+.main_product_list .p_price{ color:#FF6600;}
+
+/* 서브 상품 리스트 정리 */
+.sub_product_list li{ float:left; padding:10px 0px; text-align:center;width:25%; }
+.sub_product_list img{ border:1px solid #dddddd;}
+.sub_product_list .p_name{font-weight:bold; }
+.sub_product_list .p_price{ color:#FF6600;}
+.sub_product_list:after{ content:""; clear:both; display:block;}
+/*
+	border-top:1px solid #dddddd;
+	border-left:1px solid #dddddd;
+	border-right:1px groove #dddddd;
+	border-bottom:1px solid #dddddd;
+	*/
+
+	/* mall category */
+.m_cat {border:1px solid #dddddd; width:100%;background-color:#F7F7F7;}
+.m_cat dt {float:left; text-align:left; width:150px; font-weight:bold; padding:10px 0px 0px 10px; background-color:#FFFFFF;  min-height:100px;}
+.m_cat dd {padding:0px 0px 0px 10px; float:left;}/*#F7F7F7*/
+.m_cat:after{ content:""; clear:both; display:block; }/*부모width-100px*/
+.m_cat dd ul li{float:left;padding:10px 0 0 20px; }
+/* 리스트에서 상품 테이블 크기 
+.td_pd_list{
+	width:170px;
+	vertical-align:top; 
+}
+*/
+
+/* 상품상세보기 */
+/*.product_view ul li {float:left}*/
+.product_view dl dt {float:left}
+.product_view dl dd {float:left; width:400px; padding-left:10px}
+
+/* 상품갯수 올리기 */
+.pd_cnt li 	{  padding:0px; }
+.pd_cnt > li	{ float:left; list-style:none; padding-left:10px; padding-top:0px }
+.pd_cnt > li > ul {list-style:none;margin:0;padding:0; line-height:10px}/*background-color:red;*/
+
+
+
+/* 안내 멘트 창 */
+/* 각각의 안내 멘트 창 */
+fieldset.desc{clear:both;padding:3px 3px 0 5px;margin:0 0 10px 0;color: #333333; *zoom:1;}
+fieldset.desc:after	{ content:""; clear:both; display:block; }
+fieldset.desc legend{color:#FF6600; font-weight:bold;}
+fieldset.desc .notice	{ color:#FF6600; float:left; }
+fieldset.desc .comment	{ float:left;  padding-left:20px;}
+fieldset.desc:after{ content:""; clear:both; display:block;}
+
+/* 마이페이지 메인 */
+.mypage_list li {float:left; padding:4px;}
+.mypage_list li ul {float:left}
+.mypage_list li ul li {float:left; padding-top:10px;}
+.mypage_list:after{ content:""; clear:both; display:block;}

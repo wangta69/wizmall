@@ -1,0 +1,551 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=<?=$cfg["common"]["lan"]?>">
+<TITLE>:::::TGCORP 결제 테스트:::::</TITLE>
+<STYLE type="text/css">
+    BODY { 
+        scrollbar-3dlight-color:#888888;
+        scrollbar-arrow-color:#888888;
+        scrollbar-track-color:#FFFFFF;
+        scrollbar-darkshadow-color:#888888;
+        scrollbar-face-color:#FFFFFF;
+        scrollbar-highlight-color:#FFFFFF;
+        scrollbar-shadow-color:#FFFFFF
+    }
+    BODY { FONT-family:돋움; FONT-size:9pt;color:#000000; text-decoration:none;}
+    TD { FONT-family:돋움; FONT-size:9pt;color:#000000; text-decoration:none;}
+</STYLE>
+</HEAD>
+
+<SCRIPT language="javascript">
+
+    /**
+        결제 요청 함수 (결제창 호출)
+    */
+    function reqPayment() {
+        setSmode(); // 예제 테스트를 위한 함수 (Smode_tmp->Smode)
+
+        if(document.payform.Smode.value!="0002" && document.payform.Smode.value!="0003") 
+        { // 현금영수증 직접 전송은 팝업을 이용하지 않음
+            TG_PAY = window.open("","TG_PAY", "resizable=no, width=390, height=360");
+            TG_PAY.focus();        
+            document.payform.target="TG_PAY";
+        }
+        document.payform.action="https://npg.tgcorp.com/dlp/start.jsp";
+    }
+    
+    /**
+        거래시간은 편의상 구매자 PC 시간을 사용합니다.
+        실제로는 쇼핑몰 서버의 시간을 사용해야 합니다.
+    */
+    function setTxTime() {
+        var time = new Date();
+        var year = time.getYear() + "";
+        var month = time.getMonth()+1;
+        var date = time.getDate();
+        var hour = time.getHours();
+        var min = time.getMinutes();
+        var sec = time.getSeconds();
+        if(month<10) month = "0" + month;
+        if(date<10) date = "0" + date;
+        if(hour<10) hour = "0" + hour;
+        if(min<10) min = "0" + min;
+        if(sec<10) sec = "0" + sec;       
+        return year + month + date + hour + min + sec;
+    }
+
+    /**    
+        거래번호(MxIssueNO), 거래일시(MxIssueDate) 생성 예제
+        예제에서는 편의상 거래시간을 거래번호로 사용합니다.
+        실제로는 쇼핑몰의 고유 주문번호를 사용해야 합니다. 
+    */    
+    function initValue() {
+        var tmp = setTxTime();
+        document.payform.MxIssueNO.value = "TEST_"+tmp;
+        document.payform.MxIssueDate.value = tmp;
+    }
+
+    /**
+        예제 테스트를 위해, 선택한 결제 수단 값(Smode_tmp)을 Smode에 설정
+        실제로, Smode1 ~ Smode8은 hidden으로 설정
+    */
+    function setSmode() {
+        document.payform.Smode.value = document.payform.Smode_tmp.value;
+        document.payform.Smode1.value = document.payform.Smode_tmp1.value;
+        document.payform.Smode2.value = document.payform.Smode_tmp2.value;
+        document.payform.Smode3.value = document.payform.Smode_tmp3.value;
+        document.payform.Smode4.value = document.payform.Smode_tmp4.value;
+        document.payform.Smode5.value = document.payform.Smode_tmp5.value;
+        document.payform.Smode6.value = document.payform.Smode_tmp6.value;
+        document.payform.Smode7.value = document.payform.Smode_tmp7.value;
+        document.payform.Smode8.value = document.payform.Smode_tmp8.value;
+    }
+
+</SCRIPT>
+<BODY BGCOLOR="#FFFFFF" LEFTMARGIN="10" TOPMARGIN="10" MARGINWIDTH="10" MARGINHEIGHT="10" onLoad="initValue();">
+
+<FORM NAME="payform" METHOD="post">
+
+<!-- 
+    #################### 서비스별 Smode 설명 ####################
+    3001 : 신용카드 - dbpath 비정상 응답 시, '결과확인요망'으로 상태 저장
+    3005 : 신용카드 - dbpath 비정상 응답 등, 결과 응답 메시지 무시
+    3007 : 신용카드 - dbpath 비정상 응답 시, 자동 취소
+    2500 : 금결원 계좌이체 - dbpath 비정상 응답 시, '결과확인요망'으로 상태 저장
+    2501 : 금결원 계좌이체 - dbpath 비정상 응답 시, 자동 취소
+    2201 : 핑거 계좌이체 - 신규 서비스 종료
+    2401 : 뱅크타운 계좌이체 - 신규 서비스 종료
+    6101 : 휴대폰결제 - 결제 금액의 이동 통신사 통신료 합산 과금 서비스
+    8801 : ARS전화결제 - 결제 금액의 한국통신(KT) 통신료 합산 과금 서비스
+    2601 : 가상계좌 - 가상계좌 번호 부여 및 자동 입금 통보 서비스
+    5101 : 도서상품권 - 도서상품권 및 북 캐쉬를 이용한 지불 서비스
+    5301 : 복합결제 - 신용카드와 도서상품권의 복합 결제
+    0001 : 현금영수증 - 무통장 입금에 대한 현금 영수증 무료 발행 서비스(구매자 입력 방식)
+    0002 : 현금영수증 - 무통장 입금에 대한 현금 영수증 무료 발행 서비스(업체 전송 방식)
+    0003 : 현금영수증 - 현금 영수증 발급 취소
+    #############################################################
+-->
+
+<!-- 자세한 설명은 매뉴얼을 참고 바랍니다. -->
+<!-- 해당되는 결제 수단의 parameter를 다음과 같이 설정합니다. -->
+
+<!-- 공통 parameter 설정 시작 -->
+
+    <input type="hidden" name="MxID" value="testcorp"> <!-- 가맹점 ID -->
+    <input type="hidden" name="MxIssueNO"> <!-- 거래 번호(가맹점 생성) -->
+    <input type="hidden" name="MxIssueDate"> <!-- 거래 일자(가맹점 생성, YYYYMMDDhhmmss) -->
+    <input type="hidden" name="Amount" value="1000"> <!-- 거래 금액 -->    
+    <input type="hidden" name="Currency" value="KRW"> <!-- 화폐 구분 -->
+    <input type="hidden" name="CcMode" value="00"> <!-- 거래 모드(신용카드-'00':데모,'11':실거래 | 기타거래-'10':실거래) -->
+    
+    <input type="hidden" name="Smode" value="3001"> <!-- 결제 수단 구분(위의 설명) -->
+    <input type="hidden" name="CcProdDesc" value="모나미 볼펜 (검정색)"> <!-- 상품명 -->
+    <input type="hidden" name="CcNameOnCard" value="테스트"> <!-- 구매자 성명 -->
+    <input type="hidden" name="MSTR" value=""> <!-- 가맹점 return 값, DBPATH로 전달-->
+    <input type="hidden" name="MSTR2" value=""> <!-- 가맹점 return 값, REDIRPATH로 전달-->
+    
+    <input type="hidden" name="URL" value="npg.tgcorp.com"> <!-- 가맹점 서버 URL('http://' 제외) -->
+    <input type="hidden" name="DBPATH" value="/mall/dbpath.jsp"> <!-- 결과 저장 파일 경로 -->
+    <input type="hidden" name="REDIRPATH" value="/mall/redirpath.jsp"> <!-- 결과 화면 파일 경로 -->
+    <input type="hidden" name="connectionType" value="http"> <!-- 가맹점 서버 프로토콜(http, https) -->
+    
+    <input type="hidden" name="bannerImage" value=""> <!-- 결제 창 로고 이미지(82 X 43) 경로 -->
+    <input type="hidden" name="signType" value="1"> <!-- 암호화 결정(1:비암호화, 2:암호화-JSP만 해당) -->
+    <input type="hidden" name="dbpathType" value=""> <!-- 소켓방식 사용여부('tls':사용) -->
+    <input type="hidden" name="tgssl_ip" value=""> <!-- 소켓방식 사용시, 서버 IP -->
+    <input type="hidden" name="tgssl_port" value=""> <!-- 소켓방식 사용시, 서버 Port -->
+        
+    <input type="hidden" name="Smode1" value=""> <!-- 결제 창에 타 결제 수단 이동 버튼 추가 -->
+    <input type="hidden" name="Smode2" value="">
+    <input type="hidden" name="Smode3" value="">
+    <input type="hidden" name="Smode4" value="">
+    <input type="hidden" name="Smode5" value="">
+    <input type="hidden" name="Smode6" value="">
+    <input type="hidden" name="Smode7" value="">
+    <input type="hidden" name="Smode8" value="">
+
+<!-- 공통 parameter 설정 끝 --> 
+<!-- 신용카드 parameter 설정 시작 -->
+
+    <input type="hidden" name="PID" value="7012121234567"> <!-- 사용자 주민등록번호('-' 생략) -->
+    <input type="hidden" name="PhoneNO" value="01012341234"> <!-- 사용자 전화번호 -->
+    <input type="hidden" name="Country" value="KR"> <!-- 배송지 국가코드('KR') -->
+    <input type="hidden" name="ZipCode" value="123-456"> <!-- 배송지 우편번호 -->
+    <input type="hidden" name="Addr" value="서울시 강남구 대치동"> <!-- 배송지 주소(한글 32자까지) -->
+    <input type="hidden" name="AddrExt" value="1-1번지"> <!-- 배송지 상세주소(한글 32자까지) -->
+    <input type="hidden" name="Install" value=""> <!-- 할부개월(기본:전체개월, 예-'0:2:3':3개월까지) -->
+
+    <input type="hidden" name="email" value=""> <!-- 결제 결과를 전달받을 사용자 email 주소 -->
+    <input type="hidden" name="BillType" value="00"> <!-- 출력 영수증 구분('00':과세, '10':비과세) -->
+    <input type="hidden" name="InstallType" value="00"> <!-- 가맹점 할부 수수료 부담('00':미부담, '01':부담) -->
+    
+<!-- 신용카드 parameter 설정 끝 --> 
+<!-- 계좌이체(금결원) parameter 설정 시작 -->
+
+    <input type="hidden" name="CcProdName" value="상품명"> <!-- 간략한 상품 정보(한글 5자까지) -->
+    <input type="hidden" name="Name" value="테스트"> <!-- 송금인 성명(한글 5자까지) --> 
+
+    <!-- 아래는 신용카드와 중복 : 신용카드 사용하지 않는 경우에만 아래 사용 -->
+    <!--<input type="hidden" name="email" value="">--> <!-- 결제 결과를 전달받을 사용자 email 주소 -->
+    <!--<input type="hidden" name="BillType" value="00">--> <!-- 출력 영수증 구분('00':과세, '10':비과세) -->
+
+<!-- 계좌이체(금결원) parameter 설정 끝 --> 
+<!-- 뱅크타운, 핑거 계좌이체 설명은 생략합니다. --> 
+
+<!-- 휴대폰결제 parameter 설정 시작 -->
+
+    <input type="hidden" name="ItemType" value="Amount"> <!-- 핸드폰 결제 고정값 -->
+    <input type="hidden" name="ItemCount" value="1"> <!-- 핸드폰 결제 고정값 -->
+    <input type="hidden" name="ItemInfo" value="1|1000|1|12S0Hz0000|testcorp"> <!-- 종류|금액|1|상품코드|가맹점 -->
+
+<!-- 휴대폰결제 parameter 설정 끝 -->
+<!-- ARS전화결제 parameter 설정 시작 -->
+
+    <input type=hidden name="TxType" value="03"> <!-- '03' 고정 -->
+    <input type=hidden name="TxItemType" value="01"> <!-- '01':디지털, '02':실물 -->
+    <input type=hidden name="TxItemCount" value="1"> <!-- 상품의 개수 -->
+    <input type=hidden name="TxItemUnitAmount" value="1000"> <!-- 상품의 단가-->
+    <input type=hidden name="TxItemName" value="상품명"> <!-- 상품의 이름-->
+    <input type=hidden name="TxItemInfo" value="상품설명"> <!-- 상품에 대한 정보, 설명-->
+
+    <input type=hidden name="PUID" value="user_id"> <!-- 사용자 ID-->
+    <input type=hidden name="PUIP" value="user_ip"> <!-- 사용자 IP-->
+    <input type=hidden name="Method" value="Request"> <!-- 결제 방법('Request' 고정) -->
+    <input type=hidden name="charge_id_sel" value="KT"> <!-- ISP 종류('KT' 고정) -->
+
+<!-- ARS전화결제 parameter 설정 끝 -->
+<!-- 가상계좌 parameter 설정 시작 -->
+
+    <input type="hidden" name="CcUserMPhone" value="01012341234"> <!-- 사용자 휴대폰 번호('-' 생략) -->
+    <input type="hidden" name="Email" value=""> <!-- 구매자 입금안내 메일 주소 -->   
+
+<!-- 가상계좌 parameter 설정 끝 -->
+<!-- 도서상품권 parameter 설정 시작 -->
+
+    <!-- 아래는 ARS전화결제와 중복 : ARS전화결제 사용하지 않는 경우에만 아래 사용 -->
+    <!--<input type="hidden" name="PUID" value="">--> <!-- 사용자 ID-->
+    <!--<input type="hidden" name="PUIP" value="">--> <!-- 사용자 IP-->
+
+    <!-- 아래는 신용카드와 중복 : 신용카드 사용하지 않는 경우에만 아래 사용 -->
+    <!--<input type="hidden" name="email" value="">--> <!-- 결제 결과를 전달받을 사용자 email 주소 -->
+
+<!-- 도서상품권 parameter 설정 끝 -->
+<!-- 현금영수증 (구매자 결제 창 입력 방식) parameter 설정 시작 -->
+
+    <!-- 아래는 BillType 신용카드와 중복 : 신용카드 사용하지 않는 경우에만 아래 사용 -->
+    <!--<input type="hidden" name="BillType" value="00">--> <!-- 영수증 구분('00':과세, '10':비과세) -->
+    <!-- 아래는 부가세 별도 지정시에 사용 -->
+    <!--<input type="hidden" name="VAT" value="0">--> <!-- 현금 영수증 부가세 금액 (미 지정 시 자동 계산) -->    
+
+<!-- 현금영수증 parameter 설정 끝 -->    
+<!-- 현금영수증 (업체 관리자 웹 전송 방식) parameter 설정 시작 -->
+
+    <!-- 아래는 BillType 신용카드와 중복 : 신용카드 사용하지 않는 경우에만 아래 사용 -->
+    <!--<input type="hidden" name="BillType" value="00">--> <!-- 영수증 구분('00':과세, '10':비과세) -->
+    <input type="hidden" name="ReqType" value="0"> <!--  용도 구분 (0:소득공제 용, 1:비용처리 용)  -->
+    <input type="hidden" name="PIDS" value="01012341234"> <!--  본인정보:주민번호/사업자번호/전화번호 등 ('-'생략) 13byte -->
+    <input type="hidden" name="UserName" value="홍길동"> <!--  발급 대상자 이름 30byte -->
+    <input type="hidden" name="UserEMail" value="gildong@tgcorp.com"> <!--  발급 대상자 email 32byte -->
+    <input type="hidden" name="UserPhone" value="01012341234"> <!--  발급 대상자 연락처 ('-'생략) 15byte -->
+    <!-- 아래는 부가세 별도 지정시에 사용 -->
+    <!--<input type="hidden" name="VAT" value="0">--> <!-- 현금 영수증 부가세 금액 (미 지정 시 자동 계산) -->
+
+<!-- 현금영수증 parameter 설정 끝 -->    
+
+
+<TABLE border="0" align="center" cellpadding="0" cellspacing="0">
+<TR>
+    <TD width=9 height=7><img src="http://npg.tgcorp.com/dlp/nondlp/cpguide/line_t_left.gif"></TD>
+    <TD width="600" background="http://npg.tgcorp.com/dlp/nondlp/cpguide/line_t_center.gif"></TD>
+    <TD><img src="http://npg.tgcorp.com/dlp/nondlp/cpguide/line_t_right.gif"></TD>
+</TR>
+<TR>
+    <TD background="http://npg.tgcorp.com/dlp/nondlp/cpguide/line_m_left.gif"></TD>
+    <TD bgcolor="#FFFFFF">
+        <TABLE width="600" align="center" border="0" cellspacing="0" cellpadding="0">
+            <TR>
+                <TD><img src="http://npg.tgcorp.com/dlp/nondlp/cpguide/top_banner.gif"></TD>
+            </TR>
+            <TR>
+                <TD height="20">&nbsp;</TD>
+            </TR>
+            <TR>
+                <TD bgcolor="#FFFFFF" align="center" valign="top"> 
+                    <!--보라 테두리/장바구니-->
+                    <TABLE width="570" border="0" cellspacing="0" cellpadding="0">
+                        <TR>
+                            <TD width="7" height="7"><img src="http://npg.tgcorp.com/dlp/nondlp/cpguide/inline_t_left.gif"></TD>
+                            <TD width="556" background="http://npg.tgcorp.com/dlp/nondlp/cpguide/inline_t_center.gif"></TD>
+                            <TD width="7" height="7"><img src="http://npg.tgcorp.com/dlp/nondlp/cpguide/inline_t_right.gif"></TD>
+                        </TR>
+                        <TR>
+                            <TD background="http://npg.tgcorp.com/dlp/nondlp/cpguide/inline_m_left.gif"></TD>
+                            <TD width="556" align="center">
+                                <TABLE width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <TR> 
+                                        <TD colspan="4" align="center" height="30" bgcolor="#F7D9FF">
+                                            <IMG ALIGN="absmiddle" SRC="http://npg.tgcorp.com/dlp/nondlp/cpguide/icon_member_02.gif">
+                                            <FONT style="color:black;">&nbsp;장바구니 내역</FONT>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD height="1" colspan="4" background="http://npg.tgcorp.com/dlp/nondlp/cpguide/bg_dot.gif"></TD></TR>
+                                    <TR> 
+                                        <TD width="15%" align="center" height = "20" >주문 내역</TD>
+                                        <TD width="4%" align="center" height="20">수량</TD>
+                                        <TD width="4%" align="center" height="20">단가</TD>
+                                        <TD width="4%" align="center" height="20">금액</TD>
+                                    </TR>
+                                    <TR><TD height="1" colspan="4" background="http://npg.tgcorp.com/dlp/nondlp/cpguide/bg_dot.gif"></TD></TR>
+                                    <TR> 
+                                        <TD width="15%" align="center" height = "20" >모나미 볼펜 (검정색)</TD>
+                                        <TD width="4%" align="center" height="20">1</TD>
+                                        <TD width="4%" align="center" height="20">1000</TD>
+                                        <TD width="4%" align="center" height="20">1000</TD>
+                                    </TR>
+                                    <TR>
+                                        <TD height="1" colspan="4" background="http://npg.tgcorp.com/dlp/nondlp/cpguide/bg_dot.gif"></TD></TR>
+                                    <TR> 
+                                        <TD width="19%" align="center" height = "20" >주문 합계</TD>
+                                        <TD width="4%" align="center" height="20">1</TD>
+                                        <TD width="4%" align="center" height="20">-</TD>
+                                        <TD width="4%" align="center" height="20">1000</TD>
+                                    </TR>
+                                </TABLE>
+                            </TD>
+                            <TD background="http://npg.tgcorp.com/dlp/nondlp/cpguide/inline_m_right.gif"></TD>
+                        </TR>
+                        <TR>
+                            <TD width="7" height="7"><img src="http://npg.tgcorp.com/dlp/nondlp/cpguide/inline_b_left.gif"></TD>
+                            <TD background="http://npg.tgcorp.com/dlp/nondlp/cpguide/inline_b_center.gif"></TD>
+                            <TD width="7" height="7"><img src="http://npg.tgcorp.com/dlp/nondlp/cpguide/inline_b_right.gif"></TD>
+                        </TR>
+                    </TABLE>
+                    <!--보라 테두리/장바구니 END-->
+                </TD>
+            </TR>
+            <TR>
+                <TD height="15">&nbsp;</TD>
+            </TR>
+            <TR>
+                <TD align="center" height="40"><input type="image" border="0" name="TGsubmit" src="http://npg.tgcorp.com/dlp/nondlp/cpguide/btn_payment.gif" OnClick="reqPayment()"></TD>
+            </TR>
+            <TR>
+                <TD height="15">&nbsp;</TD>
+            </TR>
+            <TR>
+                <TD bgcolor="#FFFFFF" align="center" valign="top"> 
+                    <!--파라미터 테이블-->
+                    <TABLE width=570 border=0 cellpadding=3 cellspacing=1 bgcolor=#999999 align=center>
+                        <TR bgcolor="#F7D9FF">
+                            <TD height="40" colspan="2" align="center">
+                                <IMG ALIGN="absmiddle" SRC="http://npg.tgcorp.com/dlp/nondlp/cpguide/icon_member_02.gif">
+                                <FONT style="color:black;FONT-size:10pt;">&nbsp;TGCORP 결제 테스트 페이지 입니다.</FONT>
+                            </TD>
+                        </TR>
+                        <TR>
+                            <TD colspan=2 bgcolor=#f6f6f6>
+                                <FONT style="color:blue;FONT-size:10pt;">- 결제 수단 선택</FONT>
+                                (다음과 같이 구매자가 결제요청 전에 결제 수단을 선택 할 수 있습니다.)
+                            </TD>
+                        </TR>
+                        <TR>
+                            <TD bgcolor=#f6f6f6 align="center">Smode</TD>
+                            <TD bgcolor=#FFFFFF>
+                                <SELECT name="Smode_tmp" style="width:170px">
+                                    <OPTION value="3001">신용카드 (3001)</OPTION>
+                                    <OPTION value="3005">신용카드 (3005)</OPTION>
+                                    <OPTION value="3007">신용카드 (3007)</OPTION>
+                                    <OPTION value="2500">계좌이체(금결원) (2500)</OPTION>
+                                    <OPTION value="2501">계좌이체(금결원) (2501)</OPTION>
+                                    <OPTION value="2201">계좌이체(핑거) (2201)</OPTION>
+                                    <OPTION value="2401">계좌이체(뱅크타운) (2401)</OPTION>
+                                    <OPTION value="2601">가상계좌  (2601)</OPTION>
+                                    <OPTION value="6101">휴대폰결제 (6101)</OPTION>
+                                    <OPTION value="8801">ARS전화결제 (8801)</OPTION>
+                                    <OPTION value="5101">도서상품권 (5101)</OPTION>
+                                    <OPTION value="5301">복합결제 (5301)</OPTION>
+                                    <OPTION value="0001">현금영수증 (0001)</OPTION>                                    
+                                    <OPTION value="0002">현금영수증 전송(0002)</OPTION>
+                                    <OPTION value="0003">현금영수증 취소(0003)</OPTION>
+                                </SELECT> <FONT style="color:red;FONT-size:10pt;">※ TGCORP와 계약된 서비스만 이용 가능합니다.</FONT>
+                            </TD>
+                        </TR>
+                        <TR>
+                            <TD colspan=2 bgcolor=#f6f6f6>
+                                <FONT style="color:blue;FONT-size:10pt;">- 탭으로 보여줄 결제 수단 설정</FONT>
+                                (설정된 결제 수단을 결제 창에서 구매자가 선택할 수 있습니다.)
+                            </TD>
+                        </TR>
+                        <TR>
+                            <TD bgcolor=#f6f6f6 align="center">Smode1</TD>
+                            <TD bgcolor=#FFFFFF>
+                                <SELECT name="Smode_tmp1" style="width:170px">
+                                    <OPTION value=""></OPTION>
+                                    <OPTION value="3001">신용카드 (3001)</OPTION>
+                                    <OPTION value="3005">신용카드 (3005)</OPTION>
+                                    <OPTION value="3007">신용카드 (3007)</OPTION>
+                                    <OPTION value="2500">계좌이체(금결원) (2500)</OPTION>
+                                    <OPTION value="2501">계좌이체(금결원) (2501)</OPTION>
+                                    <OPTION value="2201">계좌이체(핑거) (2201)</OPTION>
+                                    <OPTION value="2401">계좌이체(뱅크타운) (2401)</OPTION>
+                                    <OPTION value="2601">가상계좌  (2601)</OPTION>
+                                    <OPTION value="6101">휴대폰결제 (6101)</OPTION>
+                                    <OPTION value="8801">ARS전화결제 (8801)</OPTION>
+                                    <OPTION value="5101">도서상품권 (5101)</OPTION>
+                                    <OPTION value="5301">복합결제 (5301)</OPTION>
+                                    <OPTION value="0001">현금영수증 (0001)</OPTION>
+                                </SELECT> ※ 실제로 'Smode1'은 hidden 값입니다.
+                            </TD>
+                        </TR>
+                        <TR>
+                            <TD bgcolor=#f6f6f6 align="center">Smode2</TD>
+                            <TD bgcolor=#FFFFFF>
+                                <SELECT name="Smode_tmp2" style="width:170px">
+                                    <OPTION value=""></OPTION>
+                                    <OPTION value="3001">신용카드 (3001)</OPTION>
+                                    <OPTION value="3005">신용카드 (3005)</OPTION>
+                                    <OPTION value="3007">신용카드 (3007)</OPTION>
+                                    <OPTION value="2500">계좌이체(금결원) (2500)</OPTION>
+                                    <OPTION value="2501">계좌이체(금결원) (2501)</OPTION>
+                                    <OPTION value="2201">계좌이체(핑거) (2201)</OPTION>
+                                    <OPTION value="2401">계좌이체(뱅크타운) (2401)</OPTION>
+                                    <OPTION value="2601">가상계좌  (2601)</OPTION>
+                                    <OPTION value="6101">휴대폰결제 (6101)</OPTION>
+                                    <OPTION value="8801">ARS전화결제 (8801)</OPTION>
+                                    <OPTION value="5101">도서상품권 (5101)</OPTION>
+                                    <OPTION value="5301">복합결제 (5301)</OPTION>
+                                    <OPTION value="0001">현금영수증 (0001)</OPTION>                                    
+                                </SELECT> ※ 실제로 'Smode2'은 hidden 값입니다.
+                            </TD>
+                        </TR>
+                        <TR>
+                            <TD bgcolor=#f6f6f6 align="center">Smode3</TD>
+                            <TD bgcolor=#FFFFFF>
+                                <SELECT name="Smode_tmp3" style="width:170px">
+                                    <OPTION value=""></OPTION>
+                                    <OPTION value="3001">신용카드 (3001)</OPTION>
+                                    <OPTION value="3005">신용카드 (3005)</OPTION>
+                                    <OPTION value="3007">신용카드 (3007)</OPTION>
+                                    <OPTION value="2500">계좌이체(금결원) (2500)</OPTION>
+                                    <OPTION value="2501">계좌이체(금결원) (2501)</OPTION>
+                                    <OPTION value="2201">계좌이체(핑거) (2201)</OPTION>
+                                    <OPTION value="2401">계좌이체(뱅크타운) (2401)</OPTION>
+                                    <OPTION value="2601">가상계좌  (2601)</OPTION>
+                                    <OPTION value="6101">휴대폰결제 (6101)</OPTION>
+                                    <OPTION value="8801">ARS전화결제 (8801)</OPTION>
+                                    <OPTION value="5101">도서상품권 (5101)</OPTION>
+                                    <OPTION value="5301">복합결제 (5301)</OPTION>
+                                    <OPTION value="0001">현금영수증 (0001)</OPTION>                                    
+                                </SELECT> ※ 실제로 'Smode3'은 hidden 값입니다.
+                            </TD>
+                        </TR>
+                        <TR>
+                            <TD bgcolor=#f6f6f6 align="center">Smode4</TD>
+                            <TD bgcolor=#FFFFFF>
+                                <SELECT name="Smode_tmp4" style="width:170px">
+                                    <OPTION value=""></OPTION>
+                                    <OPTION value="3001">신용카드 (3001)</OPTION>
+                                    <OPTION value="3005">신용카드 (3005)</OPTION>
+                                    <OPTION value="3007">신용카드 (3007)</OPTION>
+                                    <OPTION value="2500">계좌이체(금결원) (2500)</OPTION>
+                                    <OPTION value="2501">계좌이체(금결원) (2501)</OPTION>
+                                    <OPTION value="2201">계좌이체(핑거) (2201)</OPTION>
+                                    <OPTION value="2401">계좌이체(뱅크타운) (2401)</OPTION>
+                                    <OPTION value="2601">가상계좌  (2601)</OPTION>
+                                    <OPTION value="6101">휴대폰결제 (6101)</OPTION>
+                                    <OPTION value="8801">ARS전화결제 (8801)</OPTION>
+                                    <OPTION value="5101">도서상품권 (5101)</OPTION>
+                                    <OPTION value="5301">복합결제 (5301)</OPTION>
+                                    <OPTION value="0001">현금영수증 (0001)</OPTION>                                    
+                                </SELECT> ※ 실제로 'Smode4'은 hidden 값입니다.
+                            </TD>
+                        </TR>
+                        <TR>
+                            <TD bgcolor=#f6f6f6 align="center">Smode5</TD>
+                            <TD bgcolor=#FFFFFF>
+                                <SELECT name="Smode_tmp5" style="width:170px">
+                                    <OPTION value=""></OPTION>
+                                    <OPTION value="3001">신용카드 (3001)</OPTION>
+                                    <OPTION value="3005">신용카드 (3005)</OPTION>
+                                    <OPTION value="3007">신용카드 (3007)</OPTION>
+                                    <OPTION value="2500">계좌이체(금결원) (2500)</OPTION>
+                                    <OPTION value="2501">계좌이체(금결원) (2501)</OPTION>
+                                    <OPTION value="2201">계좌이체(핑거) (2201)</OPTION>
+                                    <OPTION value="2401">계좌이체(뱅크타운) (2401)</OPTION>
+                                    <OPTION value="2601">가상계좌  (2601)</OPTION>
+                                    <OPTION value="6101">휴대폰결제 (6101)</OPTION>
+                                    <OPTION value="8801">ARS전화결제 (8801)</OPTION>
+                                    <OPTION value="5101">도서상품권 (5101)</OPTION>
+                                    <OPTION value="5301">복합결제 (5301)</OPTION>
+                                    <OPTION value="0001">현금영수증 (0001)</OPTION>                                    
+                                </SELECT> ※ 실제로 'Smode5'은 hidden 값입니다.
+                            </TD>
+                        </TR>
+                        <TR>
+                            <TD bgcolor=#f6f6f6 align="center">Smode6</TD>
+                            <TD bgcolor=#FFFFFF>
+                                <SELECT name="Smode_tmp6" style="width:170px">
+                                    <OPTION value=""></OPTION>
+                                    <OPTION value="3001">신용카드 (3001)</OPTION>
+                                    <OPTION value="3005">신용카드 (3005)</OPTION>
+                                    <OPTION value="3007">신용카드 (3007)</OPTION>
+                                    <OPTION value="2500">계좌이체(금결원) (2500)</OPTION>
+                                    <OPTION value="2501">계좌이체(금결원) (2501)</OPTION>
+                                    <OPTION value="2201">계좌이체(핑거) (2201)</OPTION>
+                                    <OPTION value="2401">계좌이체(뱅크타운) (2401)</OPTION>
+                                    <OPTION value="2601">가상계좌  (2601)</OPTION>
+                                    <OPTION value="6101">휴대폰결제 (6101)</OPTION>
+                                    <OPTION value="8801">ARS전화결제 (8801)</OPTION>
+                                    <OPTION value="5101">도서상품권 (5101)</OPTION>
+                                    <OPTION value="5301">복합결제 (5301)</OPTION>
+                                    <OPTION value="0001">현금영수증 (0001)</OPTION>                                    
+                                </SELECT> ※ 실제로 'Smode6'은 hidden 값입니다.
+                            </TD>
+                        </TR>
+                        <TR>
+                            <TD bgcolor=#f6f6f6 align="center">Smode7</TD>
+                            <TD bgcolor=#FFFFFF>
+                                <SELECT name="Smode_tmp7" style="width:170px">
+                                    <OPTION value=""></OPTION>
+                                    <OPTION value="3001">신용카드 (3001)</OPTION>
+                                    <OPTION value="3005">신용카드 (3005)</OPTION>
+                                    <OPTION value="3007">신용카드 (3007)</OPTION>
+                                    <OPTION value="2500">계좌이체(금결원) (2500)</OPTION>
+                                    <OPTION value="2501">계좌이체(금결원) (2501)</OPTION>
+                                    <OPTION value="2201">계좌이체(핑거) (2201)</OPTION>
+                                    <OPTION value="2401">계좌이체(뱅크타운) (2401)</OPTION>
+                                    <OPTION value="2601">가상계좌  (2601)</OPTION>
+                                    <OPTION value="6101">휴대폰결제 (6101)</OPTION>
+                                    <OPTION value="8801">ARS전화결제 (8801)</OPTION>
+                                    <OPTION value="5101">도서상품권 (5101)</OPTION>
+                                    <OPTION value="5301">복합결제 (5301)</OPTION>
+                                    <OPTION value="0001">현금영수증 (0001)</OPTION>                                    
+                                </SELECT> ※ 실제로 'Smode7'은 hidden 값입니다.
+                            </TD>
+                        </TR>
+                        <TR>
+                            <TD bgcolor=#f6f6f6 align="center">Smode8</TD>
+                            <TD bgcolor=#FFFFFF>
+                                <SELECT name="Smode_tmp8" style="width:170px">
+                                    <OPTION value=""></OPTION>
+                                    <OPTION value="3001">신용카드 (3001)</OPTION>
+                                    <OPTION value="3005">신용카드 (3005)</OPTION>
+                                    <OPTION value="3007">신용카드 (3007)</OPTION>
+                                    <OPTION value="2500">계좌이체(금결원) (2500)</OPTION>
+                                    <OPTION value="2501">계좌이체(금결원) (2501)</OPTION>
+                                    <OPTION value="2201">계좌이체(핑거) (2201)</OPTION>
+                                    <OPTION value="2401">계좌이체(뱅크타운) (2401)</OPTION>
+                                    <OPTION value="2601">가상계좌  (2601)</OPTION>
+                                    <OPTION value="6101">휴대폰결제 (6101)</OPTION>
+                                    <OPTION value="8801">ARS전화결제 (8801)</OPTION>
+                                    <OPTION value="5101">도서상품권 (5101)</OPTION>
+                                    <OPTION value="5301">복합결제 (5301)</OPTION>
+                                    <OPTION value="0001">현금영수증 (0001)</OPTION>                                    
+                                </SELECT> ※ 실제로 'Smode8'은 hidden 값입니다.
+                            </TD>
+                        </TR>
+                    </TABLE>
+                    <!--파라미터 테이블 END-->
+                </TD>
+            </TR>
+            <TR>
+                <TD height="20"></TD>
+            </TR>
+            <TR>
+                <TD><img src="http://npg.tgcorp.com/dlp/nondlp/cpguide/allright.gif"></TD>
+            </TR>
+        </TABLE>
+        <!--end-->    
+    </TD>
+    <TD background="http://npg.tgcorp.com/dlp/nondlp/cpguide/line_m_right.gif"></TD>
+</TR>
+<TR>
+    <TD width=9 height=10><img src="http://npg.tgcorp.com/dlp/nondlp/cpguide/line_b_left.gif"></TD>
+    <TD background="http://npg.tgcorp.com/dlp/nondlp/cpguide/line_b_center.gif"></TD>
+    <TD><img src="http://npg.tgcorp.com/dlp/nondlp/cpguide/line_b_right.gif"></TD>
+</TR>
+</TABLE>
+</FORM>
+</BODY>
+</HTML>

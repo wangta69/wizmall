@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>Demos - Uploadify</title> 
+<script type="text/javascript" language="javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" language="javascript" src="/js/jquery.plugins/jquery-ui-1.7.2.custom.min.js"></script>
+
+<script type="text/javascript" src="/js/swfobject.js"></script> 
+<script type="text/javascript" src="/js/jquery.plugins/uploadify/jquery.uploadify.v2.1.4.min.js"></script> 
+<link href="./js/jquery.plugins/uploadify/uploadify.css" rel="stylesheet" type="text/css" media="screen" /> 
+<meta name="generator" content="WordPress 3.2" /> 
+
+
+</head> 
+ 
+<body> 
+ 
+
+  <div id="content"> 
+  	            <h1>Demos</h1> 
+
+
+			        	<div id="basic-demo" class="demo"> 
+      	<h2>Basic Demo</h2> 
+        <p>This demo illustrates a basic implementation of Uploadify.</p> 
+        <script type="text/javascript"> 
+				$(function() {
+				$('#file_upload').uploadify({
+  'uploader'  : '/js/jquery.plugins/uploadify/uploadify.swf',
+  'script'    : '/js/jquery.plugins/uploadify/uploadify.php',
+  'cancelImg' : '/js/jquery.plugins/uploadify/cancel.png',
+  'folder'    : '/uploads',
+  'removeCompleted' : true
+});				});
+				</script> 
+        <style type="text/css"> 
+        #basic-demo .uploadifyQueueItem {
+  background-color: #F5F5F5;
+  border: 2px solid #E5E5E5;
+  font: 11px Verdana, Geneva, sans-serif;
+  margin-top: 5px;
+  padding: 10px;
+  width: 350px;
+}
+#basic-demo .uploadifyError {
+  background-color: #FDE5DD !important;
+  border: 2px solid #FBCBBC !important;
+}
+#basic-demo .uploadifyQueueItem .cancel {
+  float: right;
+}
+#basic-demo .uploadifyQueue .completed {
+  background-color: #E5E5E5;
+}
+#basic-demo .uploadifyProgress {
+  background-color: #E5E5E5;
+  margin-top: 10px;
+  width: 100%;
+}
+#basic-demo .uploadifyProgressBar {
+  background-color: #0099FF;
+  height: 3px;
+  width: 1px;
+}				</style> 
+        <div class="demo-box"> 
+        <input id="file_upload" type="file" name="Filedata" />
+<p><a href="javascript:$('#file_upload').uploadifyUpload()">Upload Files</a></p>        </div> 
+      </div> 
+        	<div id="custom-demo" class="demo"> 
+      	<h2>Custom Demo</h2> 
+        <p>Uploadify is fully customizable.  Here is an implementation with multiple files, auto uploads, limited file types, limited queue size, and custom onSelectOnce and onAllComplete functions.</p> 
+        <script type="text/javascript"> 
+				$(function() {
+				$('#custom_file_upload').uploadify({
+  'uploader'       : '/js/jquery.plugins/uploadify/uploadify.swf',
+  'script'         : '/js/jquery.plugins/uploadify/uploadify.php',
+  'cancelImg'      : '/js/jquery.plugins/uploadify/cancel.png',
+  'folder'         : '/uploads',
+  'multi'          : true,
+  'auto'           : true,
+  'fileExt'        : '*.jpg;*.gif;*.png',
+  'fileDesc'       : 'Image Files (.JPG, .GIF, .PNG)',
+  'queueID'        : 'custom-queue',
+  'queueSizeLimit' : 3,
+  'simUploadLimit' : 3,
+  'removeCompleted': false,
+  'onSelectOnce'   : function(event,data) {
+      $('#status-message').text(data.filesSelected + ' files have been added to the queue.');
+    },
+  'onAllComplete'  : function(event,data) {
+      $('#status-message').text(data.filesUploaded + ' files uploaded, ' + data.errors + ' errors.');
+    }
+});				});
+				</script> 
+        <style type="text/css"> 
+        .uploadifyQueueItem {
+  background-color: #FFFFFF;
+  border: none;
+  border-bottom: 1px solid #E5E5E5;
+  font: 11px Verdana, Geneva, sans-serif;
+  height: 50px;
+  margin-top: 0;
+  padding: 10px;
+  width: 350px;
+}
+.uploadifyError {
+  background-color: #FDE5DD !important;
+  border: none !important;
+  border-bottom: 1px solid #FBCBBC !important;
+}
+.uploadifyQueueItem .cancel {
+  float: right;
+}
+.uploadifyQueue .completed {
+  color: #C5C5C5;
+}
+.uploadifyProgress {
+  background-color: #E5E5E5;
+  margin-top: 10px;
+  width: 100%;
+}
+.uploadifyProgressBar {
+  background-color: #0099FF;
+  height: 3px;
+  width: 1px;
+}
+#custom-queue {
+  border: 1px solid #E5E5E5;
+  height: 213px;
+margin-bottom: 10px;
+  width: 370px;
+}				</style> 
+
+
+	<div id="custom-queue"></div>
+	<input id="custom_file_upload" type="file" name="Filedata" /></div> 
+
+ 
+
+
+</body> 
+</html>

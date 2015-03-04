@@ -1,0 +1,15 @@
+   #POPUPMENU{position:absolute;z-index:10;background:#EEEEEE;margin:0px;width:100px;visibility:hidden;}
+
+   body {font-size:12px; Color:'#3C3C3C'; font-family:?}
+   A {font-size:12px; Color:'#000000';text-decoration:none;}
+   A:Visited {font-size: 12px; Color:'#000000'; text-decoration:none;}
+   A:Active {font-size: 12px; Color:'#000000'; text-decoration:underline;}
+   A:Hover {font-size: 12px; Color:'#000000';  text-decoration:underline;}
+   textarea {font-size: 12px;}
+   input {font-size: 12px;}
+   select {font-size: 12px;}
+   checkbox {font-size: 12px;}
+   radio {font-size: 12px;}
+   td {font-size: 12px;}
+   td.txt {font-size: 12px;}
+   td.menu {font-size: 12px; line-height:20px;}

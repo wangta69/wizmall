@@ -1,0 +1,49 @@
+.text-chainopen {
+	font-family: "Arial", "Helvetica", "sans-serif", "µ¸¿ò", "±¼¸²";
+	font-size: 12px;
+	color: #555555;
+	line-height: 150%;
+
+}
+.text-menu {
+	font-family: "Arial", "Helvetica", "sans-serif", "µ¸¿ò", "±¼¸²";
+	font-size: 12px;
+	color: #444444;
+}
+.text-board {
+	font-family: "Arial", "Helvetica", "sans-serif", "µ¸¿ò", "±¼¸²";
+	font-size: 12px;
+	color: #555555;
+	border: none;
+
+}
+a:link {
+	font-family: "Arial", "Helvetica", "sans-serif", "µ¸¿ò", "±¼¸²";
+	font-size: 12px;
+	color: #555555;
+	text-decoration: none;
+}
+a:visited {
+	font-family: "Arial", "Helvetica", "sans-serif", "µ¸¿ò", "±¼¸²";
+	font-size: 12px;
+	color: #555555;
+	text-decoration: none;
+}
+a:active {
+	font-family: "Arial", "Helvetica", "sans-serif", "µ¸¿ò", "±¼¸²";
+	font-size: 12px;
+	color: #555555;
+	text-decoration: none;
+}
+a:hover {
+	font-family: "Arial", "Helvetica", "sans-serif", "µ¸¿ò", "±¼¸²";
+	font-size: 12px;
+	color: #333333;
+	text-decoration: underline;
+}
+.board-box {
+	font-family: "Arial", "Helvetica", "sans-serif", "µ¸¿ò", "±¼¸²";
+	font-size: 12px;
+	color: #555555;
+	border: 1px solid #acacac;
+}

@@ -1,0 +1,50 @@
+/* 다이내믹 팝업관련*/
+
+/* Columns section */
+
+/*<div class="dynamicPop"><div class="popHead"><h3>TITLE</h3></div><div class="popMessage"></div></div>*/
+.dynamicPop  {
+    margin: 30px 20px 0px 20px;
+    padding: 2px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+	background-color:#4abed3;
+}
+
+.dynamicPop .popHead{
+	background:#4abed3;
+}
+
+
+.dynamicPop h3 {
+    padding: 0 5px;
+    float: left;
+	line-height:1.9em;
+}
+
+.dynamicPop .popHead a.pop_close  {
+    float: right;
+	display: inline;
+    background: url(../images/popup_buttons.gif) no-repeat -24px 0;
+    width: 14px;
+    height: 14px;
+    margin: 8px 4px 8px 0;
+	width: 14px;
+    height: 14px;
+    text-indent: -9999em;
+    outline: none;
+}
+
+.dynamicPop .popHead:after	{ content:""; clear:both; display:block; }
+
+.dynamicPop .popMessage {
+    background:#fff;
+    padding:5px;
+    color: #444;
+    -moz-border-radius-bottomleft: 2px;
+    -moz-border-radius-bottomright: 2px;
+    -webkit-border-bottom-left-radius: 2px;
+    -webkit-border-bottom-right-radius: 2px;
+    line-height: 1.2em;
+    overflow: hidden;
+}
