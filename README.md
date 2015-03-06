@@ -39,6 +39,8 @@ $newIcon = ($W_DATE > time()-60*60*24) ?'경로':'';
 //$filepath = "./config/wizboard/table/".$UpdirPath."/updir/".$list["UID"]."/";
 
 ?>
+```
+```
 <!-- 이미지 경로 가져올 경우 <img src="<?=$common->getthumbimg($filepath, $list["UPDIR1"], 86, 86) ?>" width="86" height="86"> //-->
 <a href="wizboard.php?BID=<?=$bid?>&GID=<?=$gid;?>&UID=<?=$UID?>&mode=view"><?php echo $SUBJECT?></a><?=date("Y-m-d", $W_DATE)?>
 <?php
@@ -48,6 +50,7 @@ endwhile;
 
 
 ## 겔러리
+```
 <?php
 $bid = "board04";
 $gid = "root";
@@ -69,7 +72,7 @@ $cnt++;
 if(!($cnt % 3)) echo "</div><div class='thumnail'>";
 endwhile;
 ?>
-
+```
 
 
 
@@ -78,7 +81,7 @@ category
 솔루션이 아니라 일반적인 페이지에서 $cfg["member"]를 호출하기 위해서는 아래와 같은 선작업을 하여야 합니다.
 
 
-
+```
 <?php
 include_once $DOCUMENT_ROOT."/lib/class.common.php";
 $common = new common();
@@ -86,8 +89,8 @@ $common->cfg=$cfg;
 $common->pub_path = $DOCUMENT_ROOT."/";
 $cfg["member"] = $common->getLogininfo();//로그인 정보를 가져옮
 ?>
-
-
+```
+```
 <?php
 if ($cfg["member"]) : //로그인상태이면
 //$cfg["member"]["mid"]
@@ -153,7 +156,7 @@ function LoginCheckForm(f){
     </p>
   </form>
 <?php endif; ?>
-  
+```
   
 ## 각종 링크
 unset($status); /* 로그인과 이후 혹은 query 값에 대한 다양한 결과가 요구되므로 $status의 상황에 따라 각각 행동 반경을 정한다. */
