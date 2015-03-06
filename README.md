@@ -24,6 +24,7 @@ include "./util/wizpopup/popinsert.php";
 
 
 ## 공지사항
+```
 <?php
 $bid = "board01";
 $gid = "root";
@@ -43,7 +44,7 @@ $newIcon = ($W_DATE > time()-60*60*24) ?'경로':'';
 <?php
 endwhile;
 ?>
-
+```
 
 
 ## 겔러리
@@ -154,7 +155,7 @@ function LoginCheckForm(f){
 <?php endif; ?>
   
   
-  각종 링크
+## 각종 링크
 unset($status); /* 로그인과 이후 혹은 query 값에 대한 다양한 결과가 요구되므로 $status의 상황에 따라 각각 행동 반경을 정한다. */
 
 포인트 보기 : wizmember.php?query=point
