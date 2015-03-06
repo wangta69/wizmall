@@ -159,35 +159,27 @@ function LoginCheckForm(f){
 ```
   
 ## 각종 링크
-unset($status); /* 로그인과 이후 혹은 query 값에 대한 다양한 결과가 요구되므로 $status의 상황에 따라 각각 행동 반경을 정한다. */
+unset($status); //로그인과 이후 혹은 query 값에 대한 다양한 결과가 요구되므로 $status의 상황에 따라 각각 행동 반경을 정한다. 
 
-포인트 보기 : wizmember.php?query=point
-주문정보보기 : wizmember.php?query=order'
-
-회원정보수정시 먼저 패스워드 한번더 확인 : wizmember.php?query=infopass
-
-회원정보보기 : wizmember.php?query=info
-로그인 : wizmember.php?query=login
-로그아웃  : wizmember.php?query=logout
-혹은 직업링크 wizmember/LOG_OUT.php
-위시리스트 : wizmember.php?query=wish
-마이페이지 : wizmember.php?query=mypage
-
-일정관리 view  : wizmember.php?query=logmanage
-일정관리 리스트  : wizmember.php?query=logmanage_list
-일정관리 기  : wizmember.php?query=logmanage_write
-
-오늘본상품 : wizmember.php?query=clickpd
-쿠폰페이지 : wizmember.php?query=mycoupon
-
-회원탈퇴 : wizmember.php?query=out
-
-회원가입추가입력 : wizmember.php?query=regismore
-정보변경(패스워드만 변경) wizmember.php?query=chpass
-패스워드 찾기 wizmember.php?query=passsearch
-아이디찾기 : wizmember.php?query=idsearch
-아이디패스워드찾기 : wizmember.php?query=idpasssearch
-
-회원가입1단계 : wizmember.php?query=regis_step1
-비회원 주문정보 : wizmember.php?query=non_member_order
-
+* 포인트 보기 : wizmember.php?query=point
+* 주문정보보기 : wizmember.php?query=order'
+* 회원정보수정시 먼저 패스워드 한번더 확인 : wizmember.php?query=infopass
+* 회원정보보기 : wizmember.php?query=info
+* 로그인 : wizmember.php?query=login
+* 로그아웃  : wizmember.php?query=logout
+* 혹은 직업링크 wizmember/LOG_OUT.php
+* 위시리스트 : wizmember.php?query=wish
+* 마이페이지 : wizmember.php?query=mypage
+* 일정관리 view  : wizmember.php?query=logmanage
+* 일정관리 리스트  : wizmember.php?query=logmanage_list
+* 일정관리 기  : wizmember.php?query=logmanage_write
+* 오늘본상품 : wizmember.php?query=clickpd
+* 쿠폰페이지 : wizmember.php?query=mycoupon
+* 회원탈퇴 : wizmember.php?query=out
+* 회원가입추가입력 : wizmember.php?query=regismore
+* 정보변경(패스워드만 변경) wizmember.php?query=chpass
+* 패스워드 찾기 wizmember.php?query=passsearch
+* 아이디찾기 : wizmember.php?query=idsearch
+* 아이디패스워드찾기 : wizmember.php?query=idpasssearch
+* 회원가입1단계 : wizmember.php?query=regis_step1
+* 비회원 주문정보 : wizmember.php?query=non_member_order
