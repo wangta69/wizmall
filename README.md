@@ -1,13 +1,7 @@
-# wizmall
-
-
+# WIZMALL For PHP
 e-commercial open source for php
-
-
-
-
 http://www.shop-wiz.com
-
+current_version : 6.6.8
 
 
 ## 일반적인 인크루드
