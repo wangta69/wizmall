@@ -159,8 +159,6 @@ function LoginCheckForm(f){
 ```
   
 ## 각종 링크
-unset($status); //로그인과 이후 혹은 query 값에 대한 다양한 결과가 요구되므로 $status의 상황에 따라 각각 행동 반경을 정한다. 
-
 * 포인트 보기 : wizmember.php?query=point
 * 주문정보보기 : wizmember.php?query=order'
 * 회원정보수정시 먼저 패스워드 한번더 확인 : wizmember.php?query=infopass
