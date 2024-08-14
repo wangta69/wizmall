@@ -179,7 +179,7 @@ else:
 ?>
 				<tr>
 					<th>주민등록번호</th>
-					<td><input name="juminno1" type="text" tabindex="12" maxlength="6" onkeyup="moveFocus(6,this,document.idsearch_form.juminno2)" class="w50 required" msg="주민번호를 입력하세요">
+					<td><input name="juminno1" type="text" tabindex="12" maxlength="6" onkeyup="moveFocus(6, this, document.idsearch_form.juminno2)" class="w50 required" msg="주민번호를 입력하세요">
 						-
 						<input name="juminno2" type="text" tabindex="13" maxlength="7" class="w50 required" msg="주민번호를 입력하세요"></td>
 				</tr>

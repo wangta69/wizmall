@@ -1,4 +1,4 @@
-<?
+<?php
 #CREATE TABLE `wizbanner` (
 #  `uid` int(11) NOT NULL auto_increment,
 #  `ordernum` int(5) NOT NULL default '0',

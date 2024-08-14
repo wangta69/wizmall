@@ -180,8 +180,6 @@ switch ( $query ){
 <!-- bottom menu start -->
 <?php
 if (file_exists("./skinwiz/layout/".$cfg["skin"]["LayoutSkin"]."/menu_bottom.php") && $cfg["op"]["iframe"] != "true") include ("./skinwiz/layout/".$cfg["skin"]["LayoutSkin"]."/menu_bottom.php");
-?>
-<!-- bottom menu end -->
-<?php
+
 include ("./skinwiz/layout/".$cfg["skin"]["LayoutSkin"]."/layout_close.php");
 $dbcon->_close();

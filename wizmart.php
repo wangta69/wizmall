@@ -251,7 +251,7 @@ switch ( $query ){
 	case ( "option" ) ://옵션상품보기
 		include ("./skinwiz/shop/".$cfg["skin"]["ShopSkin"]."/optionlist.php");
 	break;		
-	default :
+
 	case ( "martmain" ) ://숍메인보기
 		include ("./skinwiz/shop/".$cfg["skin"]["ShopSkin"]."/martmain.php");
 	break;	

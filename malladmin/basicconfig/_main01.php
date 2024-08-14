@@ -87,7 +87,7 @@ function deletefnc(){
             <td width="100">베너위치</td>
             <td>&nbsp;</td>
           </tr>
-<? 
+<?php
 foreach($banner_cat as $key=>$value){ 
 ?>
           <tr bgcolor="#FFFFFF">
@@ -101,7 +101,7 @@ foreach($banner_cat as $key=>$value){
                 </tr>
               </table></td>
           </tr>
-<?
+<?php
 }
 ?>
       </table>      
@@ -120,7 +120,7 @@ foreach($banner_cat as $key=>$value){
             <td width="150">이미지</td>
             <td width="70" bgcolor="E0E4E8">수정</td>
           </tr>
-          <? 
+<?php 
 $START_NO = ($SUB_cp - 1) * $ListNo;
 $BOARD_NO=$TOTAL-($ListNo*($SUB_cp-1));
 $orderby = "uid@DESC";
@@ -137,7 +137,7 @@ extract($list);
             <td align="center"><img src="../config/banner/<?=$attached?>" width=100> </td>
             <td align="center"><a href="<?=$PHP_SELF?>?menushow=<?=$menushow?>&theme=basicconfig/main01_write&flag1=<?=$flag1?>&mode=update&uid=<?=$uid;?>"><img src="img/su.gif" width="53" height="20" border="0" /></a></td>
           </tr>
-          <?
+<?php
 $BOARD_NO--;
 endwhile;
 ?>

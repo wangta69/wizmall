@@ -763,7 +763,7 @@ if(!$valuecnt) $valuecnt = 0;
 ?>
 							<table>
 								<tr>
-									<td id=currPosition>옵션명 :
+									<td>옵션명 :
 										<input name='opname[<?php echo $cnt;?>]' value='<?php echo $oname?>' class='w100'/>
 										<select name='opcnt[<?php echo $cnt;?>]' onChange="listeachOptionCnt(this, <?php echo $cnt;?>, '<?php echo $valuecnt?>')" style="width:50px">
 											<option value='0'>갯수</option>
@@ -929,8 +929,7 @@ if(!strcmp(trim($complist["CompID"]),trim($list["GetComp"]))) $selected = " sele
 						</td>
 					</tr>
 					<tr>
-						<th class="active">간단한
-							설명</th>
+						<th class="active">간단한 설명</th>
 						<td>
 							<textarea name="Description2" rows="3"  style="width:98%"><?php echo $list["Description2"]?></textarea>
 

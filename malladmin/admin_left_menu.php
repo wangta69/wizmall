@@ -28,7 +28,6 @@
       <li><a href="./main.php?menushow=menu1&theme=basicconfig/main01">베너관리</a></li>
       <li><a href="./main.php?menushow=menu1&theme=basicconfig/basic_info8">회원가입옵션 설정</a></li>
       <li><a href="./main.php?menushow=menu1&theme=basicconfig/basic_info9">설정초기화</a></li>
-      <li><a href="../wizboard/phpMyAdmin" target="_blank">phpMyAdmin</a></li>
     </ul>
   </div>
   <div id="menu2">
